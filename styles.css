@@ -70,4 +70,32 @@ button:hover{
     color:white;
 }
 
+#result{
+    margin:0.2rem 0;
+}
 
+@media (max-width:750px){
+    section{
+      width:90%;
+      background:red;
+    }
+
+    input{
+        width:70%;
+    }
+}
+
+@media (min-width:1540px){
+   body{
+    font-size:2rem;
+    padding:2.5rem;
+   }
+
+   main{
+    gap:1rem;
+   }
+
+   input,button{
+       font-size:2.5rem;
+   }
+}

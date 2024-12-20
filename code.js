@@ -1,30 +1,45 @@
+function checkword(word){
+  let neword="";
+ for(let i = 0; i < word.length; i++){
+  if(/^[a-zA-Z0-9]+$/.test(word[i])){
+    neword=neword+word[i];
+  }
+ }
+ neword=neword.toLowerCase();
+ return neword;
+}
+
 function palindrome(word){
-if(word===""){
-  return "You do not enter a word";
+  word=word.toLowerCase();
+if(word==""){
+  return "Please input a value";
 }else{
-  console.log(word);
   let wordmodify="";
   for(let i=word.length-1;i>=0;i--){
-  wordmodify=wordmodify+word[i];
+  if(/^[a-zA-Z0-9]+$/.test(word[i])){
+    wordmodify=wordmodify+word[i];
   }
-  if(wordmodify===word){
-   return "This word is palindrome";
+  }
+  
+  console.log(wordmodify);
+  if(wordmodify===checkword(word) && !/^[0-9]+$/.test(word)){
+   return `${word} is a palindrome`;
   }else{
-    return "This word is not palindrome";
+    return ` ${word} is not a palindrome`;
   }
 }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   
-  const btn = document.querySelector("button");
-  const inp = document.getElementById("input");
+  const btn = document.getElementById("check-btn");
+  const inp = document.getElementById("text-input");
   let text;
 
   btn.addEventListener("click", (event) => {
     event.preventDefault();
     text = inp.value;
-    document.getElementById("message").innerText = palindrome(text);
+    document.getElementById("result").innerText = palindrome(text);
   });
 
 });
